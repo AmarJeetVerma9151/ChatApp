@@ -16,7 +16,7 @@ app.use(cookieParser());
 
 const corsOptions = {
   origin: "https://chat-application-29sm.vercel.app",
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+  methods: ["GET", "POST"],
   credentials: true,
 };
 

@@ -9,6 +9,8 @@ const io = new Server(server, {
   cors: {
     origin: "https://chat-application-29sm.vercel.app",
     methods: ["GET", "POST"],
+  credentials: true,
+
   },
 });
 
