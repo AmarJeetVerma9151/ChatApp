@@ -15,7 +15,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
   origin:"https://chat-application-29sm.vercel.app",
-  methods:['PUT',"PATCH",'DELETE',"GET","POST"],
+   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    credentials: true,
 }))
 
 const PORT =8090
