@@ -10,16 +10,23 @@ import { app, server } from "./SocketIO/server.js";
 
 dotenv.config();
 
-// middleware
+// MIDDLEWARES
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({
-  origin:"https://chat-application-29sm.vercel.app",
-   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-    credentials: true,
-}))
 
-const PORT =8090
+const corsOptions = {
+  origin: "https://chat-application-29sm.vercel.app",
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+
+// ✅ Handle preflight requests (very important)
+app.options("*", cors(corsOptions));
+
+// DATABASE
+const PORT = 8090;
 const URI = process.env.MONGODB_URI;
 
 try {
@@ -29,10 +36,11 @@ try {
   console.log(error);
 }
 
-
+// ROUTES
 app.use("/api/user", userRoute);
 app.use("/api/message", messageRoute);
 
+// SERVER START
 server.listen(PORT, () => {
   console.log(`Server is Running on port ${PORT}`);
 });
