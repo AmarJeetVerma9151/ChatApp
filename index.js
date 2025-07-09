@@ -13,7 +13,14 @@ dotenv.config();
 // middleware
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+const allowedOrigins = ["http://localhost:5173", "https://chat-application-29sm.vercel.app"];
+// app.use(cors());
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true, 
+  })
+);
 
 const PORT =8090
 const URI = process.env.MONGODB_URI;
