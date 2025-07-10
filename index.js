@@ -14,19 +14,19 @@ dotenv.config();
 app.use(express.json());
 app.use(cookieParser());
 
-// const corsOptions = {
-//   origin: "https://chat-application-29sm.vercel.app",
-//   methods: ["GET", "POST"],
-//   credentials: true,
-// };
+const corsOptions = {
+  origin: "https://chat-application-29sm.vercel.app",
+  methods: ["GET", "POST"],
+  credentials: true,
+};
 
-app.use(cors({
-  origin: 'https://chat-application-29sm.vercel.app', // frontend का URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true
-}));
+// app.use(cors({
+//   origin: 'https://chat-application-29sm.vercel.app', // frontend का URL
+//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//   credentials: true
+// }));
 
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 // ✅ Handle preflight requests (very important)
 // app.options("*", cors(corsOptions));
