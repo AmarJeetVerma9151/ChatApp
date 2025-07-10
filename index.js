@@ -27,10 +27,10 @@ app.use(cors({
   credentials: true
 }));
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 // ✅ Handle preflight requests (very important)
-app.options("*", cors(corsOptions));
+// app.options("*", cors(corsOptions));
 
 // DATABASE
 const PORT = 8090;
